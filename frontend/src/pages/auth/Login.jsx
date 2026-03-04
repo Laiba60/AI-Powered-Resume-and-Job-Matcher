@@ -1,5 +1,6 @@
 import React from "react";
 import { FiLock } from "react-icons/fi";
+import { LuFileText } from "react-icons/lu";
 
 const Login = () => {
   return (
@@ -8,7 +9,7 @@ const Login = () => {
       {/* Logo */}
       <div className="flex flex-col items-center mb-6">
         <div className="w-12 h-12 bg-indigo-600 rounded-xl flex items-center justify-center shadow-md">
-          <span className="text-white text-xl font-bold">D</span>
+          <LuFileText  className="text-white text-xl font-bold"/>
         </div>
         <h1 className="text-lg font-semibold mt-3">AI Resume Matcher</h1>
       </div>
