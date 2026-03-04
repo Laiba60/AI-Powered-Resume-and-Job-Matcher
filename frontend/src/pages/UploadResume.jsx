@@ -1,4 +1,4 @@
-import Sidebar from "../components/Sidebar";
+import Sidebar from "../components/ResumeSidebar";
 import Topbar from "../components/ResumeUploadTopbar";
 import UploadCard from "../components/UploadCard";
 

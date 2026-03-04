@@ -1,6 +1,8 @@
+import { useNavigate } from "react-router-dom";
 export default function Sidebar() {
+  const Navigate = useNavigate();
   return (
-    <div className="w-64 bg-white border-r flex flex-col justify-between p-6">
+    <div className="w-64 bg-white  flex flex-col justify-between p-6">
       
       <div>
         <h1 className="text-xl font-bold text-indigo-600 mb-8">
@@ -16,7 +18,7 @@ export default function Sidebar() {
             Upload Resume
           </button>
 
-          <button className="block w-full text-left px-4 py-2 hover:bg-gray-100 rounded-lg">
+          <button onClick={()=>Navigate("/match-result")} className="block w-full text-left px-4 py-2 hover:bg-gray-100 rounded-lg">
             Job Matching
           </button>
 
