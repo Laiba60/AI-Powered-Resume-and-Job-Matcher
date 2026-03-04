@@ -8,6 +8,7 @@ import MatchResult from './pages/MatchResult'
 import Jobs from './pages/jobs'
 import AdminDashboard from './pages/Admin/AdminDashboard'
 import AdminUsers from './pages/Admin/AdminUsers'
+import AdminJobManagement from './pages/Admin/AdminJobManagement'
 
 const App = () => {
   return (
@@ -20,6 +21,7 @@ const App = () => {
       <Route path="/recommend" element={<Jobs />} />
       <Route path="/admin" element={<AdminDashboard />} />
       <Route path="/admin/users" element={<AdminUsers />} />
+      <Route path="/admin/jobs" element={<AdminJobManagement />} />
     </Routes>
   )
 }
