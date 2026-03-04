@@ -1,8 +1,10 @@
 import React from "react";
 import { FiLock } from "react-icons/fi";
 import { LuFileText } from "react-icons/lu";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
+    const navigate=useNavigate()
   return (
     <div className="min-h-screen bg-gray-200 flex flex-col items-center justify-center px-4">
       
@@ -55,14 +57,14 @@ const Login = () => {
         </div>
 
         {/* Button */}
-        <button className="w-full mt-4 bg-indigo-600 hover:bg-indigo-700 text-white py-2 rounded-lg font-medium transition duration-200 shadow-md">
+        <button  onClick={()=>navigate("/dashboard")} className="w-full mt-4 bg-indigo-600 hover:bg-indigo-700 text-white py-2 rounded-lg font-medium transition duration-200 shadow-md">
           Login
         </button>
 
         {/* Signup */}
         <p className="text-center text-sm text-gray-500 mt-6">
           Don’t have an account?{" "}
-          <a href="#" className="text-indigo-600 font-medium hover:underline">
+          <a href="/register" className="text-indigo-600 font-medium hover:underline">
             Sign up
           </a>
         </p>
