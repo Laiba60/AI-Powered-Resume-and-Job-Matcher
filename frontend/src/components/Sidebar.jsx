@@ -1,4 +1,7 @@
+import { useNavigate } from "react-router-dom";
+
 export default function Sidebar() {
+  const navigate=useNavigate()
   return (
     <div className="w-64 bg-white  p-6 flex flex-col justify-between">
       <div>
@@ -11,7 +14,7 @@ export default function Sidebar() {
             Browse Jobs
           </button>
 
-          <button className="w-full text-left px-4 py-2 hover:bg-gray-100 rounded-lg">
+          <button  onClick={()=>navigate("/upload")} className="w-full text-left px-4 py-2 hover:bg-gray-100 rounded-lg">
             My Resumes
           </button>
 
