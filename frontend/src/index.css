@@ -1,1 +1,10 @@
 @import "tailwindcss";
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #F9FAFB;
+}
+
+/* Custom class for rounded corners */
+.custom-roundness {
+  border-radius: 12px; /* matches tailwind theme 'twelve' */
+}
