@@ -6,6 +6,8 @@ import Dashboard from './pages/Dashboard'
 import UploadResume from './pages/UploadResume'
 import MatchResult from './pages/MatchResult'
 import Jobs from './pages/jobs'
+import AdminDashboard from './pages/Admin/AdminDashboard'
+import AdminUsers from './pages/Admin/AdminUsers'
 
 const App = () => {
   return (
@@ -16,6 +18,8 @@ const App = () => {
       <Route path="/upload" element={<UploadResume />} />
       <Route path="/match-result" element={<MatchResult />} />
       <Route path="/recommend" element={<Jobs />} />
+      <Route path="/admin" element={<AdminDashboard />} />
+      <Route path="/admin/users" element={<AdminUsers />} />
     </Routes>
   )
 }
