@@ -1,4 +1,6 @@
+import { useNavigate } from 'react-router-dom';
 export default function MatchResultSidebar() {
+  const Navigate = useNavigate();
   return (
     <div className="w-64 bg-white  flex flex-col justify-between p-6">
       <div>
@@ -15,7 +17,8 @@ export default function MatchResultSidebar() {
             Upload Resume
           </button>
 
-          <button className="block w-full text-left px-4 py-2 hover:bg-gray-100 rounded-lg">
+          <button
+          className="block w-full text-left px-4 py-2 hover:bg-gray-100 rounded-lg">
             Jobs
           </button>
 

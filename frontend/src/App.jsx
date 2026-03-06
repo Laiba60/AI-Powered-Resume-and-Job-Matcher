@@ -9,6 +9,7 @@ import Jobs from './pages/jobs'
 import AdminDashboard from './pages/Admin/AdminDashboard'
 import AdminUsers from './pages/Admin/AdminUsers'
 import AdminJobManagement from './pages/Admin/AdminJobManagement'
+import AdminAddjob from './pages/Admin/AdminAddjob'
 
 const App = () => {
   return (
@@ -22,6 +23,7 @@ const App = () => {
       <Route path="/admin" element={<AdminDashboard />} />
       <Route path="/admin/users" element={<AdminUsers />} />
       <Route path="/admin/jobs" element={<AdminJobManagement />} />
+      <Route path="/admin/jobs/add" element={<AdminAddjob />} />
     </Routes>
   )
 }

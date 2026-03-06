@@ -4,8 +4,10 @@ import StatCard from "../../components/Admin/Statcard";
 import UserGrowthChart from "../../components/Admin/UserGrowthChart";
 import SkillDemandCard from "../../components/Admin/SkillDemandCard";
 import RecentMatchesTable from "../../components/Admin/RecentMatchestable";
+import { useNavigate } from 'react-router-dom';
 
 export default function AdminDashboard() {
+  const Navigate = useNavigate();
   return (
     <div className="flex h-screen bg-[#0B1220] text-white">
       <Sidebar />
