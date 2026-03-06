@@ -16,17 +16,10 @@ export default function Header() {
 
       {/* Right Side Icons */}
       <div className="flex items-center space-x-6">
-
-        {/* Notification Icon */}
-        <button className="relative text-gray-500 hover:text-indigo-600 transition text-2xl">
-          <IoMdNotificationsOutline />
-
-          {/* Notification Dot */}
-          <span className="absolute -top-1 -right-1 w-2.5 h-2.5 bg-red-500 rounded-full"></span>
-        </button>
+        
 
         {/* Profile Avatar */}
-        <button className="text-gray-500 hover:text-indigo-600 transition text-3xl">
+        <button className="text-gray-500 hover:text-indigo-600 transition text-4xl">
           <FaUserCircle />
         </button>
 
