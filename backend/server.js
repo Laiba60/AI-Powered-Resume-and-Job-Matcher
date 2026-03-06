@@ -1,17 +1,25 @@
-const express = require("express");
-const cors = require("cors");
-const mongoose = require("mongoose");
-require("dotenv").config();
+import express from "express";
+import dotenv from "dotenv";
+import cors from "cors";
+import connectDB from "./config/db.js";
+import authRoutes from "./routes/authRoutes.js";
+
+dotenv.config();
+connectDB();
 
 const app = express();
 
+// Middlewares
 app.use(cors());
 app.use(express.json());
 
-mongoose.connect(process.env.MONGO_URI)
-  .then(() => console.log("MongoDB Connected"))
-  .catch(err => console.log(err));
+// Routes
+app.use("/api/auth", authRoutes);
 
+app.get("/", (req, res) => {
+  res.send("AI Resume Matcher Backend Running");
+});
 
-
-app.listen(5000, () => console.log("Server running on port 5000"));
+// Start server
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
