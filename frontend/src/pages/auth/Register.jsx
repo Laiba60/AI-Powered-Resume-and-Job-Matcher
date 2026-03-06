@@ -94,13 +94,7 @@ const Signup = () => {
     placeholder="••••••••"
     className="w-full border border-gray-300 rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 pr-10"
   />
-  <button
-    type="button"
-    onClick={() => setShowPassword(!showPassword)}
-    className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500 hover:text-gray-700"
-  >
-    {showPassword ? "🙈" : "👁️"}
-  </button>
+  
 </div>
 
         {/* Confirm Password */}
@@ -114,13 +108,7 @@ const Signup = () => {
     placeholder="••••••••"
     className="w-full border border-gray-300 rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 pr-10"
   />
-  <button
-    type="button"
-    onClick={() => setshowConfirmPassword(!showConfirmPassword)}
-    className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500 hover:text-gray-700"
-  >
-    {showConfirmPassword ? "🙈" : "👁️"}
-  </button>
+  
 </div>
         {/* Button */}
         <button
