@@ -1,15 +1,27 @@
-import jwt from "jsonwebtoken";
+const jwt = require("jsonwebtoken");
 
-export const protect = (req, res, next) => {
-  let token = req.headers.authorization;
-  if (!token) return res.status(401).json({ message: "No token, authorization denied" });
+const protect = (req, res, next) => {
+  const token = req.headers.authorization;
 
-  token = token.split(" ")[1]; // Bearer <token>
+  if (!token) {
+    return res.status(401).json({ message: "No token" });
+  }
+
   try {
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
     req.user = decoded;
     next();
   } catch (err) {
-    res.status(401).json({ message: "Token is not valid" });
+    res.status(401).json({ message: "Invalid token" });
   }
 };
+
+// ADMIN ONLY
+const adminOnly = (req, res, next) => {
+  if (req.user.role !== "admin") {
+    return res.status(403).json({ message: "Admin only" });
+  }
+  next();
+};
+
+module.exports = { protect, adminOnly };

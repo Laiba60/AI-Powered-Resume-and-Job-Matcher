@@ -1,30 +1,98 @@
-import React from "react";
+import React, { useState } from "react";
+import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import AuthForm from "../components/AuthForm";
-import { registerUser } from "../api/auth";
 
 const Register = () => {
   const navigate = useNavigate();
 
-  const handleRegister = async (data) => {
+  const [form, setForm] = useState({
+    email: "",
+    password: "",
+  });
+
+  const handleChange = (e) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    // validation
+    if (!form.email || !form.password) {
+      return alert("Please fill all fields");
+    }
+
     try {
-      const res = await registerUser(data);
-      localStorage.setItem("token", res.data.token);
-      localStorage.setItem("user", JSON.stringify(res.data.user));
-      alert("Registration successful!");
-      navigate("/dashboard"); // redirect after register
+      await axios.post("http://localhost:5000/api/auth/register", form);
+
+      alert("Registration Successful");
+
+      // redirect to login
+      navigate("/");
+
     } catch (err) {
-      alert(err.response?.data?.message || "Registration failed");
+      alert(err.response?.data?.message || "Server Error");
     }
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="text-center mb-8">
-        <h1 className="text-4xl font-bold text-indigo-600">AI Resume Matcher</h1>
-        <p className="text-gray-600 mt-2">Create a new account</p>
+    <div className="min-h-screen flex">
+      
+      {/* LEFT SIDE */}
+      <div className="w-1/2 bg-[#001A42] text-white p-12 flex flex-col justify-between">
+        <div>
+          <h2 className="text-lg font-semibold mb-6">SkillMatch AI</h2>
+          <h1 className="text-4xl font-bold leading-tight">
+            Join the <span className="text-blue-300">Next Generation</span> of Talent.
+          </h1>
+          <p className="mt-6 text-sm text-gray-200">
+            Create your account and unlock AI-powered job matching.
+          </p>
+        </div>
       </div>
-      <AuthForm type="register" onSubmit={handleRegister} />
+
+      {/* RIGHT SIDE */}
+      <div className="w-1/2 flex items-center justify-center bg-gray-100">
+        <form
+          onSubmit={handleSubmit}
+          className="bg-white p-8 rounded-xl shadow-lg w-[350px]"
+        >
+          <h2 className="text-2xl font-bold mb-2">Create Account</h2>
+          <p className="text-gray-500 text-sm mb-6">
+            Start your journey
+          </p>
+
+          <input
+            type="email"
+            name="email"
+            placeholder="Email Address"
+            onChange={handleChange}
+            className="w-full mb-4 p-3 border rounded-lg"
+          />
+
+          <input
+            type="password"
+            name="password"
+            placeholder="Password"
+            onChange={handleChange}
+            className="w-full mb-4 p-3 border rounded-lg"
+          />
+
+          <button className="w-full bg-blue-600 text-white p-3 rounded-lg hover:bg-blue-700">
+            Register →
+          </button>
+
+          <p className="text-sm text-center mt-4">
+            Already have an account?{" "}
+            <span
+              onClick={() => navigate("/")}
+              className="text-blue-600 cursor-pointer"
+            >
+              Login
+            </span>
+          </p>
+        </form>
+      </div>
     </div>
   );
 };
