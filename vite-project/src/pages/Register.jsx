@@ -28,7 +28,7 @@ const Register = () => {
       alert("Registration Successful");
 
       // redirect to login
-      navigate("/login");
+      navigate("/");
 
     } catch (err) {
       alert(err.response?.data?.message || "Server Error");
@@ -85,7 +85,7 @@ const Register = () => {
           <p className="text-sm text-center mt-4">
             Already have an account?{" "}
             <span
-              onClick={() => navigate("/login")}
+              onClick={() => navigate("/")}
               className="text-[#3980F4] cursor-pointer"
             >
               Login
