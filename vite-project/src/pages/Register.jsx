@@ -28,7 +28,7 @@ const Register = () => {
       alert("Registration Successful");
 
       // redirect to login
-      navigate("/");
+      navigate("/login");
 
     } catch (err) {
       alert(err.response?.data?.message || "Server Error");
@@ -46,7 +46,7 @@ const Register = () => {
             Join the <span className="text-blue-300">Next Generation</span> of Talent.
           </h1>
           <p className="mt-6 text-sm text-gray-200">
-            Create your account and unlock AI-powered job matching.
+             Our AI-driven ecosystem bridges the gap between elite talent and world class opportunities with surgical precision.
           </p>
         </div>
       </div>
@@ -78,15 +78,15 @@ const Register = () => {
             className="w-full mb-4 p-3 border rounded-lg"
           />
 
-          <button className="w-full bg-blue-600 text-white p-3 rounded-lg hover:bg-blue-700">
+          <button className="w-full bg-[#3980F4] text-white p-3 rounded-lg hover:bg-blue-700">
             Register →
           </button>
 
           <p className="text-sm text-center mt-4">
             Already have an account?{" "}
             <span
-              onClick={() => navigate("/")}
-              className="text-blue-600 cursor-pointer"
+              onClick={() => navigate("/login")}
+              className="text-[#3980F4] cursor-pointer"
             >
               Login
             </span>
