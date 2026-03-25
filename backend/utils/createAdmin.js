@@ -1,7 +1,7 @@
-require("dotenv").config();
-const mongoose = require("mongoose");
-const bcrypt = require("bcryptjs");
-const User = require("../models/User");
+import User from "../models/User.js";
+import bcrypt from "bcryptjs";
+import mongoose from "mongoose";
+import dotenv from "dotenv";
 
 mongoose.connect(process.env.MONGO_URI);
 

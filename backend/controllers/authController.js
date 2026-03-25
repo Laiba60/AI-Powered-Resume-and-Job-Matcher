@@ -1,20 +1,19 @@
-const User = require("../models/User");
-const bcrypt = require("bcryptjs");
-const jwt = require("jsonwebtoken");
+// authController.js
+import User from "../models/User.js"; // ⚠️ .js extension required
+import bcrypt from "bcryptjs";
+import jwt from "jsonwebtoken";
 
 // REGISTER USER
-exports.registerUser = async (req, res) => {
+export const registerUser = async (req, res) => {
   try {
     const { email, password } = req.body;
 
     const exist = await User.findOne({ email });
-    if (exist) {
-      return res.status(400).json({ message: "User already exists" });
-    }
+    if (exist) return res.status(400).json({ message: "User already exists" });
 
     const hashed = await bcrypt.hash(password, 10);
 
-    const user = await User.create({
+    await User.create({
       email,
       password: hashed,
       role: "user",
@@ -26,32 +25,27 @@ exports.registerUser = async (req, res) => {
   }
 };
 
-// LOGIN (USER + ADMIN SAME)
-exports.loginUser = async (req, res) => {
+// LOGIN USER
+export const loginUser = async (req, res) => {
   try {
-    console.log("Request body:", req.body);
-
     const { email, password } = req.body;
     const user = await User.findOne({ email });
-    console.log("User found:", user);
-
     if (!user) return res.status(400).json({ message: "User not found" });
 
     const match = await bcrypt.compare(password, user.password);
-    console.log("Password match:", match);
-
     if (!match) return res.status(400).json({ message: "Invalid password" });
 
-    if (!process.env.JWT_SECRET) {
-      console.log("JWT_SECRET missing");
+    if (!process.env.JWT_SECRET)
       return res.status(500).json({ message: "Server configuration error" });
-    }
 
-    const token = jwt.sign({ id: user._id, role: user.role }, process.env.JWT_SECRET, { expiresIn: "1d" });
+    const token = jwt.sign(
+      { id: user._id, role: user.role },
+      process.env.JWT_SECRET,
+      { expiresIn: "1d" }
+    );
+
     res.json({ token, role: user.role });
-
   } catch (err) {
-    console.error("Login error:", err); // 🔴 check your terminal for the exact error
     res.status(500).json({ message: "Server Error" });
   }
 };
