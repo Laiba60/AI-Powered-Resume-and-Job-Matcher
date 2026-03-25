@@ -1,4 +1,6 @@
+import { useNavigate } from "react-router-dom";
 export default function Sidebar() {
+  const navigate = useNavigate();
   return (
     <div className="w-64 h-screen bg-gray-100 p-5">
       <h1 className="text-xl font-bold mb-6">SkillMatch AI</h1>
@@ -7,7 +9,7 @@ export default function Sidebar() {
         <li className="text-gray-600">Dashboard</li>
         <li className="text-gray-600">Jobs</li>
         <li className="text-gray-600">Profile</li>
-        <li className="bg-blue-500 text-white p-2 rounded">
+        <li  onClick={() => navigate("/skill-match")} className="bg-blue-500 text-white p-2 rounded">
           Upload
         </li>
       </ul>
