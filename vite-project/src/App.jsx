@@ -3,6 +3,8 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Dashboard from "./pages/Dashboard";
 import SkillMatchDashboard from "./pages/SkillMatchDashboard";
+import TopMatchesAI from "./pages/TopMatchesAI";
+import ProfilePage from "./pages/ProfilePage";
 
 function App() {
   return (
@@ -12,6 +14,8 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/dashboard" element={<Dashboard />} /> 
         <Route path="/skill-match" element={<SkillMatchDashboard />} />
+        <Route path="/top-matches" element={<TopMatchesAI />} />
+        <Route path="/profile" element={<ProfilePage />} />
       </Routes>
     </BrowserRouter>
   );

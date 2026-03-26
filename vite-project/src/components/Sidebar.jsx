@@ -7,8 +7,12 @@ export default function Sidebar() {
 
       <ul className="space-y-4">
         <li className="text-gray-600">Dashboard</li>
-        <li className="text-gray-600">Jobs</li>
-        <li className="text-gray-600">Profile</li>
+        <li onClick={() => navigate("/top-matches")} className="text-gray-600">
+          Jobs
+        </li>
+        <li  onClick={() => navigate("/profile")} className="text-gray-600">
+          Profile
+        </li>
         <li  onClick={() => navigate("/skill-match")} className="bg-blue-500 text-white p-2 rounded">
           Upload
         </li>
