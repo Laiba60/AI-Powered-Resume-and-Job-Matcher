@@ -1,52 +1,8 @@
 import React from "react";
+import Sidebar from "../components/Sidebar";
 
 // Sidebar
-const Sidebar = () => {
-  return (
-    <aside className="h-screen w-64 fixed left-0 top-0 bg-[#f3f6fb] flex flex-col justify-between p-5">
-      <div>
-        <div className="mb-10">
-          <h1 className="text-[#3b82f6] font-bold text-lg">SkillMatch AI</h1>
-          <p className="text-xs text-gray-400">Architectural Intelligence</p>
-        </div>
 
-        <nav className="space-y-2">
-          {[
-            { name: "Dashboard", active: true },
-            { name: "Jobs" },
-            { name: "Profile" },
-            { name: "Upload" },
-            { name: "Job Management" },
-          ].map((item, i) => (
-            <div
-              key={i}
-              className={`flex items-center gap-3 px-4 py-2 rounded-lg text-sm cursor-pointer ${
-                item.active
-                  ? "bg-white text-[#3b82f6] shadow"
-                  : "text-gray-500 hover:text-[#3b82f6]"
-              }`}
-            >
-              <span className="material-symbols-outlined text-lg">
-                dashboard
-              </span>
-              {item.name}
-            </div>
-          ))}
-        </nav>
-      </div>
-
-      <div>
-        <button className="w-full bg-[#3b82f6] text-white py-2 rounded-lg text-sm font-medium mb-4">
-          Upgrade to Pro
-        </button>
-        <div className="text-xs text-gray-400 space-y-2">
-          <p>Help Center</p>
-          <p>Logout</p>
-        </div>
-      </div>
-    </aside>
-  );
-};
 
 // Header
 const Header = () => {

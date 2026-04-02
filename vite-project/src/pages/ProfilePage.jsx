@@ -1,43 +1,8 @@
 import React from "react";
+import Sidebar from "../components/Sidebar";
 
 // Sidebar
-const Sidebar = () => {
-  const menu = [
-    { name: "Dashboard", icon: "dashboard" },
-    { name: "Jobs", icon: "work" },
-    { name: "Profile", icon: "person" },
-    { name: "Upload", icon: "cloud_upload" },
-    { name: "Job Management", icon: "admin_panel_settings" },
-  ];
 
-  return (
-    <aside className="fixed left-0 top-0 h-screen w-64 bg-[#eef2f7] border-r border-gray-200 p-5 flex flex-col">
-      <div>
-        <h1 className="text-blue-500 font-bold text-lg mb-6">
-          SkillMatch AI
-        </h1>
-
-        <div className="space-y-2 text-sm">
-          {menu.map((item, i) => (
-            <div
-              key={i}
-              className={`flex items-center gap-3 px-4 py-2 rounded-lg cursor-pointer ${
-                item.name === "Profile"
-                  ? "bg-white text-blue-500 shadow"
-                  : "text-gray-500 hover:text-blue-500"
-              }`}
-            >
-              <span className="material-symbols-outlined">
-                {item.icon}
-              </span>
-              {item.name}
-            </div>
-          ))}
-        </div>
-      </div>
-    </aside>
-  );
-};
 
 // Header
 const Header = () => {
