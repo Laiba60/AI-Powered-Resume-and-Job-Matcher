@@ -52,12 +52,12 @@ export default function Sidebar() {
       <div className="space-y-4">
         
         {/* Upgrade Card */}
-        <div className="bg-[#0F172A] text-white p-4 rounded-xl shadow">
+        <div className="bg-gradient-to-b from-blue-900 to-blue-700 text-white p-4 rounded-xl shadow">
           <p className="text-sm font-medium mb-2">Upgrade to Pro</p>
           <p className="text-xs mb-3 opacity-80">
             Unlock advanced AI analysis and direct job matching.
           </p>
-          <button className="w-full bg-[#3B82F6] text-white text-sm py-1 rounded">
+          <button className="w-full bg-white text-blue-700 text-sm py-1 rounded">
             Upgrade Now
           </button>
         </div>
