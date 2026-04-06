@@ -6,6 +6,7 @@ import MatchStrength from "../components/MatchStrength";
 import ActiveSkillsCard from "../components/ActiveSkillsCard";
 import Topbar from "../components/Topbar";
 import Sidebar from "../components/Sidebar";
+import TopIntelligenceMatches from "../components/TopIntelligenceMatches";
 
 const Dashboard = () => {
   return (
@@ -27,6 +28,7 @@ const Dashboard = () => {
           <div className="col-span-2 space-y-6">
             <WelcomeHeader />
             <ResumeUpload />
+              <TopIntelligenceMatches />
           </div>
 
           {/* RIGHT SIDE */}

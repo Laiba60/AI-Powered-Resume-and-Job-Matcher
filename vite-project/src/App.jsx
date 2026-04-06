@@ -5,6 +5,7 @@ import Dashboard from "./pages/Dashboard";
 import UserDashboard from "./pages/UserDashboard";
 
 
+
 function App() {
   return (
     <BrowserRouter>
@@ -13,6 +14,7 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/userdashboard" element={<UserDashboard />} />
+       
       </Routes>
     </BrowserRouter>
   );
